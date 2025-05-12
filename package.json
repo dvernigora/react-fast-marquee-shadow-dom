@@ -2,7 +2,18 @@
   "name": "react-fast-marquee-shadow-dom",
   "version": "1.0.0",
   "description": "A lightweight React component that utilizes the power of CSS animations to create silky smooth marquees.",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "style": "dist/marquee.css",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.esm.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./marquee.css": "./dist/marquee.css"
+  },
   "scripts": {
     "build": "rollup -c",
     "start": "rollup -c -w",
@@ -90,12 +101,14 @@
     "react-dom": "^16.14.0",
     "react-test-renderer": "^16.14.0",
     "rollup": "^2.79.2",
+    "rollup-plugin-dts": "^6.2.1",
     "rollup-plugin-esbuild": "^6.2.1",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-sass": "^1.2.2",
     "rollup-plugin-typescript2": "^0.27.3",
     "sass": "^1.88.0",
     "ts-jest": "^26.4.4",
+    "tsup": "^8.4.0",
     "typescript": "^4.1.3"
   },
   "peerDependencies": {
@@ -115,11 +128,11 @@
   "files": [
     "dist"
   ],
-  "style": "dist/marquee.css",
   "sideEffects": [
     "*.css"
   ],
   "directories": {
     "example": "examples"
-  }
+  },
+  "dependencies": {}
 }
