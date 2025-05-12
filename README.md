@@ -37,7 +37,7 @@ Import the generated CSS **once** in your Shadow‑DOM entry (or wherever your
 global styles live):
 
 ```ts
-import 'react-fast-marquee-shadow-dom/dist/marquee.css';
+import 'react-fast-marquee-shadow-dom/marquee.css';
 ```
 
 ## Usage
@@ -45,7 +45,7 @@ import 'react-fast-marquee-shadow-dom/dist/marquee.css';
 To use the component, first import `Marquee` into your file:
 
 ```jsx
-import Marquee from "react-fast-marquee";
+import Marquee from "react-fast-marquee-shadow-dom";
 ```
 
 Then wrap the `<Marquee>` tags around any component or text you'd like to slide.
@@ -61,7 +61,7 @@ A sample file might look like this:
 ```jsx
 import React from "react";
 import MyComponent from "../components/MyComponent";
-import Marquee from "react-fast-marquee";
+import Marquee from "react-fast-marquee-shadow-dom";
 
 const App = () => (
   <Marquee>
