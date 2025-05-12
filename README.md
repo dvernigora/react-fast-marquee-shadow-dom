@@ -1,14 +1,11 @@
-# React Fast Marquee
+# React Fast Marquee — Shadow‑DOM friendly fork
 
-[React Fast Marquee](https://www.react-fast-marquee.com) is a lightweight React component that harnesses the power of CSS animations to create silky smooth marquees.
-
-[![npm](https://img.shields.io/npm/v/react-fast-marquee.svg)](https://www.npmjs.com/package/react-fast-marquee)
-[![npm downloads](https://img.shields.io/npm/dt/react-fast-marquee.svg)](https://www.npmjs.com/package/react-fast-marquee)
-[![justin-chu](https://circleci.com/gh/justin-chu/react-fast-marquee.svg?style=svg)](https://circleci.com/gh/justin-chu/react-fast-marquee)
-[![codecov](https://codecov.io/gh/justin-chu/react-fast-marquee/branch/master/graph/badge.svg?token=52Q4YZYFME)](https://codecov.io/gh/justin-chu/react-fast-marquee)
-[![npm license](https://img.shields.io/npm/l/react-fast-marquee.svg)](https://www.npmjs.com/package/react-fast-marquee)
-[![npm bundle size](https://img.shields.io/bundlephobia/min/react-fast-marquee.svg)](https://bundlephobia.com/result?p=react-fast-marquee)
-[![npm type definitions](https://img.shields.io/npm/types/react-fast-marquee.svg)](https://www.npmjs.com/package/react-fast-marquee)
+This fork removes the runtime **inline &lt;style&gt; injection** from the
+original [`react-fast-marquee`](https://www.npmjs.com/package/react-fast-marquee)
+and ships the stylesheet as a regular **Marquee.scss / marquee.css**
+so it can be processed by your own build pipeline (e.g. MiniCssExtract +
+stylesInjector into Shadow DOM). The JavaScript API is 100 % compatible
+with the upstream package.
 
 [![demogif][2]][1]
 
@@ -24,13 +21,23 @@ Check out the demo [here](https://www.react-fast-marquee.com) and play around wi
 If you're using `npm`, in the command prompt run:
 
 ```sh
-npm install react-fast-marquee --save
+npm install react-fast-marquee-shadow-dom
 ```
 
 If you're using `yarn`, run:
 
 ```sh
-yarn add react-fast-marquee
+yarn add react-fast-marquee-shadow-dom
+```
+
+### Importing the stylesheet
+
+The component no longer injects its own styles.  
+Import the generated CSS **once** in your Shadow‑DOM entry (or wherever your
+global styles live):
+
+```ts
+import 'react-fast-marquee-shadow-dom/dist/marquee.css';
 ```
 
 ## Usage
