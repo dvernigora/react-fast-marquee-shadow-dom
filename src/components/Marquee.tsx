@@ -8,9 +8,7 @@ import React, {
   ReactNode,
   CSSProperties,
   FC,
-  forwardRef,
   Children,
-  MutableRefObject,
   RefAttributes,
 } from "react";
 import "./Marquee.scss";
@@ -120,35 +118,31 @@ export type MarqueeProps = {
   children?: ReactNode;
 } & RefAttributes<HTMLDivElement>;
 
-const Marquee: FC<MarqueeProps> = forwardRef(function Marquee(
-  {
-    style = {},
-    className = "",
-    autoFill = false,
-    play = true,
-    pauseOnHover = false,
-    pauseOnClick = false,
-    direction = "left",
-    speed = 50,
-    delay = 0,
-    loop = 0,
-    gradient = false,
-    gradientColor = "white",
-    gradientWidth = 200,
-    onFinish,
-    onCycleComplete,
-    onMount,
-    children,
-  },
-  ref
-) {
+function Marquee({
+  style = {},
+  className = "",
+  autoFill = false,
+  play = true,
+  pauseOnHover = false,
+  pauseOnClick = false,
+  direction = "left",
+  speed = 50,
+  delay = 0,
+  loop = 0,
+  gradient = false,
+  gradientColor = "white",
+  gradientWidth = 200,
+  onFinish,
+  onCycleComplete,
+  onMount,
+  children,
+}): FC<MarqueeProps> {
   // React Hooks
   const [containerWidth, setContainerWidth] = useState(0);
   const [marqueeWidth, setMarqueeWidth] = useState(0);
   const [multiplier, setMultiplier] = useState(1);
   const [isMounted, setIsMounted] = useState(false);
-  const rootRef = useRef<HTMLDivElement>(null);
-  const containerRef = (ref as MutableRefObject<HTMLDivElement>) || rootRef;
+  const containerRef = useRef<HTMLDivElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
 
   // Calculate width of container and marquee and set multiplier
@@ -330,6 +324,6 @@ const Marquee: FC<MarqueeProps> = forwardRef(function Marquee(
       </div>
     </div>
   );
-});
+}
 
 export default Marquee;
